@@ -1,11 +1,20 @@
 # angular12-webpack5-svg-problem
 Showcase for a problem after updating from Angular Version 11 to 12
 
-Github issue: https://github.com/angular/angular-cli/issues/21738
+## Github issue: 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
+I filed an [issue](https://github.com/angular/angular-cli/issues/21738) which was closed as working as intended and a known breaking change.
+
+## Questions
+- As this is not an Angular bug
+  - how can I configure additional loaders for webpack 5?
+    - natively
+    - [ngx-build-plus](https://github.com/manfredsteyer/ngx-build-plus) (as suggested in my [Github Issue](https://github.com/angular/angular-cli/issues/21738#issuecomment-918056358))
+    - [angular-builders custom-webpack](https://github.com/just-jeb/angular-builders)
+  - how can the root cause of problem be fixed, that the dependency to the react component @jupyterlab/ui-components [is importing SVG files as if they were ECMA modules](https://github.com/jupyterlab/jupyterlab/blob/7c5092e0d8d5d8e7fc2d1e51f8e4f9258d49922d/packages/ui-components/src/icon/iconimports.ts)?
 
 ## Steps to reproduce the error
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5 and later updated to Angular 12.2.9
 
 Steps to break `ng build` and `ng serve` are:
 - Create new angular-project with Angular-CLI 12
@@ -20,10 +29,3 @@ You may need an appropriate loader to handle this file type, currently no loader
 ```
 
 The same steps with angular 11 work just fine.
-
-## Questions
-- Is this a bug in Angular 12?
-- If this is not a bug, how can I configure additional loaders for webpack 5?
-  - natively
-  - ngx-build-plus, https://github.com/manfredsteyer/ngx-build-plus
-  - angular-builders custom-webpack, https://github.com/just-jeb/angular-builders 
